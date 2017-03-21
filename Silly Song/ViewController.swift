@@ -28,12 +28,6 @@ class ViewController: UIViewController {
             lyricsView.text = lyricsForName(lyricsTemplate:  bananaFanaTemplate, fullName: name)
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
-    }
-
 }
 
 // MARK: - UITextFieldDelegate
@@ -66,7 +60,7 @@ func shortNameFromName(name: String) -> String {
 func lyricsForName(lyricsTemplate: String, fullName: String) -> String {
     let shortName = shortNameFromName(name: fullName)
     let lyricsTemplate = lyricsTemplate
-        .replacingOccurrences(of: "<FULL_NAME>", with: fullName)
+        .replacingOccurrences(of: "<FULL_NAME>", with: fullName.capitalized)
         .replacingOccurrences(of: "<SHORT_NAME>", with: shortName)
     
     return lyricsTemplate
